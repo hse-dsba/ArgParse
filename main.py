@@ -1,1 +1,1 @@
-print('Result of task')
+print('hello')
