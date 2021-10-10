@@ -9,7 +9,7 @@ def healthy_lifestyle_index(height, weight, sleep, meals, fruits, steps, monitor
 
     body_mass_index = weight / (height ** 2)
 
-    if 18.5 < body_mass_index < 24.9:
+    if 18.5 <= body_mass_index <= 24.9:
         HLI += 1
     if sleep == 7 or sleep == 8:
         HLI += 1
@@ -46,6 +46,16 @@ parser.add_argument('happiness', type=str, help='When was the last time you had 
                                                 '(During the week, During the month, During the year')
 args = parser.parse_args()
 
+
+your_index = int(healthy_lifestyle_index(args.height, args.weight, args.sleep, args.meals, args.fruits, args.steps,
+                                         args.monitoring_health, args.mood,args.happiness, 0))
+
+if your_index == 8:
+    print('Your index of a healthy lifestyle is 8/8, which means that you are a true leader in a healthy lifestyle!')
+elif 5 <= your_index <= 7:
+    print('Your health index is [5-7]/8, which means that you are on the right track!')
+else:
+    print('Your healthy lifestyle index is [0-4]/8 🤢, you need to rethink your healthy lifestyle!')
 
 
 
